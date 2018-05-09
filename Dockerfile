@@ -20,13 +20,13 @@
 FROM centos:6
 MAINTAINER GoCD <go-cd-dev@googlegroups.com>
 
-LABEL gocd.version="18.3.0" \
+LABEL gocd.version="18.4.0" \
   description="GoCD agent based on centos version 6" \
   maintainer="GoCD <go-cd-dev@googlegroups.com>" \
-  gocd.full.version="18.3.0-6540" \
-  gocd.git.sha="1e79bb6dc4f01f6ccd71c2b5aa0fbefa0b3eb92d"
+  gocd.full.version="18.4.0-6640" \
+  gocd.git.sha="1fb2812cfa45eee8502e420443f2b46d81c51f98"
 
-ADD https://github.com/krallin/tini/releases/download/v0.17.0/tini-static-amd64 /usr/local/sbin/tini
+ADD https://github.com/krallin/tini/releases/download/v0.18.0/tini-static-amd64 /usr/local/sbin/tini
 ADD https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64 /usr/local/sbin/gosu
 
 
@@ -50,10 +50,10 @@ RUN \
   yum install -y java-1.8.0-openjdk-headless git mercurial subversion openssh-clients bash unzip curl && \
   yum clean all && \
 # download the zip file
-  curl --fail --location --silent --show-error "https://download.gocd.org/binaries/18.3.0-6540/generic/go-agent-18.3.0-6540.zip" > /tmp/go-agent.zip && \
+  curl --fail --location --silent --show-error "https://download.gocd.org/binaries/18.4.0-6640/generic/go-agent-18.4.0-6640.zip" > /tmp/go-agent.zip && \
 # unzip the zip file into /go-agent, after stripping the first path prefix
   unzip /tmp/go-agent.zip -d / && \
-  mv go-agent-18.3.0 /go-agent && \
+  mv go-agent-18.4.0 /go-agent && \
   rm /tmp/go-agent.zip && \
   mkdir -p /docker-entrypoint.d
 
