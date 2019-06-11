@@ -26,7 +26,7 @@ RUN \
 RUN unzip /tmp/go-agent-19.5.0-9272.zip -d /
 RUN mv /go-agent-19.5.0 /go-agent
 
-FROM centos:6
+FROM centos:7
 MAINTAINER ThoughtWorks, Inc. <support@thoughtworks.com>
 
 LABEL gocd.version="19.5.0" \
